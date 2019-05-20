@@ -1,0 +1,270 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{M2S2 Lemmas}
+\author{indiamarsden }
+\date{April 2019}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}[lemma]{Theorem}
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+    \item MSE
+    \item Conditions for consistency
+    \item Rao-Cramer
+    \item Large Sample properties
+    \item Slutsky
+    \item Theorum 6
+    \item Transpose rules
+    \item Trace Multiplication
+    \item Rank and transposing
+    \item Decomposing symmetric matrices
+    \item Properties of vector expectations
+    \item Properties of covariance
+    \item Gauss Markov
+    \item Projection matrices properties
+    \item Eigenvalues and rank of projection matrices
+    \item Vector of fitted values
+    \item Unbiased estimator of variance
+    \item Multivariate normal independence
+    \item Properties of Chi-square
+    \item Making A full rank
+    \item Implications of BA=0
+    \item Making a Chi square from a PM
+    \item Independence of two PMs
+    \item Properties of Rank
+    \item Fisher-Cochran
+    \item Distribution of RSS
+    \item Pivotal Quantity for c\^(T)B
+    \item F test
+    
+\end{enumerate}
+\section*{Lemmas}
+\begin{lemma} \textbf{MSE} 
+$$
+\text{MSE}_\theta(T) = \text{Var}_\theta(T) + (\text{Bias}_\theta(T))^2
+$$
+\end{lemma}
+Proof concept:
+Expand definition of MSE
+\begin{lemma} \textbf{Conditions for consistency} \\
+\\
+Suppose $(T_n)$ is asymptotically unbiased for $g(\theta)$ and for all $\theta \in \Theta$:
+$$
+    \text{Var}_\theta(T_n) \to 0, \hspace{3pt} (n \to \infty).
+$$
+then $T_n$ is consistent for $g(\theta)$
+\end{lemma}
+Proof concept:
+\begin{itemize}
+    \item Use Markov's inequality with $X = (T_n - g(\theta))^2$
+    \item Then use definition of MSE
+\end{itemize}
+\begin{lemma} \textbf{Rao-Cramer} \\
+\\
+Let X be the observed data, usually a random vector. Suppose T = T(X) is an unbiased estimator for $\theta \in \Theta \subset R$. Under mild regularity conditions,
+$$
+Var_\theta(T) \geq \frac{1}{I_f(\theta)}
+$$
+where $I_f (\theta) = E_\theta[(\frac{\delta}{\delta \theta} log f_\theta (X))^2]$ is the so-called Expected Fisher-Information and fθ is the joint ∂θ
+density of X or the joint pmf of X.
+\end{lemma}
+\begin{theorem} \textbf{Large sample properties of MLEs}\\
+\\
+ Let $X_1, X_2, ...$ be iid observations with pdf (or pmf) $f_\theta(x)$, where $\theta \in \Theta $and $\Theta$ is an open interval. Let $\theta_0 \in \Theta $ denote the true parameter. Under regularity conditions (e.g. ${x : f_\theta(x) > 0}$ does not depend on $\theta$), the following holds: \\
+(i) There exists a consistent sequence $(\hat{\theta}_n)_{n \in N}$ of maximum likelihood estimators.[ $\hat{\theta}_n$ is an MLE based on $X_1, ... , X_n$].\\
+ (ii) Suppose $(\hat{\theta}_n)_{n \in N} $is a consistent sequence of MLEs. Then $$\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\to} N(0,(I_f (\theta_0)^{-1})$$
+where $I_f (\theta) = E_\theta[(\frac{\delta}{\delta \theta} f_\theta (X))^2]$ is the Fisher Information of a sample of size 1.
+\end{theorem}
+\begin{lemma} \textbf{Slutsky} \\
+\\
+If $X_n, Y_n, X$ are random variables and c is a constant such that $X_n \overset{d}{\to} X $  and $Y_n \overset{P}{\to} c$ then:
+\begin{align*}
+     X_n + Y_n &\overset{d}{\to} X + c \\ X_nY_n &\overset{d}{\to} cX \\ X_n/Y_n &\overset{d}{\to} X/c \hspace{6pt}\text{if }  c  \ne 0.
+\end{align*}
+\end{lemma}
+
+\begin{theorem}
+Under certain regularity conditions (in particular $H_0$ must be“nested”in $H_1$, i.e. $Θ_0$ is
+a lower-dimensional subspace/subset of Θ),
+$$2log t(Y) \overset{d}{\to} \chi^2_r \hspace{4pt} (n \to \infty)$$
+under $H_0$, where r = #independent restrictions on $\theta$ needed to define $H_0$.
+\end{theorem}
+\begin{lemma} \textbf{Transpose rules} \\
+\\
+Let $A \in \mathbb{R}^{n \times m},B \times \mathbb{R}^{n \times m}$. Then $(AB)^T = B^TA^T$ \\ Let $A \in \mathbb{R}^{n \times n}$ be non-singular. Then $(A^{-1})^T = (A^T )^{-1}$.
+\end{lemma}
+
+\begin{lemma} \textbf{Trace Multiplication} \\
+$$
+trace(AB) = trace(BA)
+$$
+\end{lemma}
+
+\begin{lemma} \textbf{Rank and Transposing} \\
+\\
+Let X be an $n \times p$ matrix. Then: $$rank(X^T X ) = rank(X)$$
+\end{lemma}
+
+\begin{lemma} \textbf{Decomposing symmetric matrices} \\
+\\
+If $A \in \mathbb{R}^{n \times n}$ is symmetric then $\exists$ an orthogonal matrix P s.t. $P^TAP$ is diagonal (with diagonal entries equal to the eigenvalues of A). \\
+If A is an $n \times n$ positive definite symmetric matrix, then $\exists$ a non-singular matrix Q s.t. $Q^TAQ = I_n$.
+\end{lemma}
+
+\begin{lemma} \textbf{Properties of vector expectation} \\
+\\
+ Let X and Y be n-variate random vectors. Then the following hold (with $a \in \mathbb{R}$, A and B deterministic(non random) matrices of suitable dimension):
+ \begin{align*}
+     &E(X+Y) = E(X)+E(Y) \\
+     &E(aX)=aE(X) \\
+     &E(AX) = A E(X) \\
+     &E(X^T B ) = E(X)^T B 
+ \end{align*}
+\end{lemma}
+
+\begin{lemma} \textbf{Properties of covariance}\\
+\\
+ If X, Y and Z are random vectors, A, B are deterministic matrices and $a, b \in \mathbb{R}$ are constants then (assuming appropriate dimensions)
+ \begin{align*}
+     &cov(X, Y) = cov(Y, X)^T \\
+&cov(aX + bY, Z) = a cov(X, Z) + b cov(Y, Z) \\
+&cov(AX, BY) = A cov(X, Y)B^T \\
+&cov(AX) = A cov(X)A^T \\
+&cov(X) \text{ is positive semidefinite and symmetric }\\
+&\text{If X and Y are independent then } cov(X, Y) = 0 \\
+ \end{align*}
+\end{lemma}
+\begin{theorem}
+ \textbf{The Gauss-Markov Theorem for full-rank linear models} \\
+ \\ Assume (FR), (SOA). Let $c \to R^p$ and let $\hat{\beta}$ be a least squares estimator of $\beta$ in a linear model. Then the following holds: The estimator $c^T \hat{\beta}$ has the smallest variance among all linear unbiased estimators for $c^T\beta$.
+
+\end{theorem}
+\begin{lemma} \textbf{Projection matrices properties} \\
+\\
+P is a projection matrix $\iff P^T =P$ and $P^2=P $.
+\end{lemma}
+
+\begin{lemma} \textbf{Eigenvalues and rank of Projection matrices} \\
+\\
+ If A is an $n \times n$ projection matrix of rank r then: 
+ \begin{align*}
+     &\text{r of the eigenvalues of A are 1 and n - r are 0} \\
+     &\text{rank A= trace A }\\
+ \end{align*}
+\end{lemma}
+
+\begin{lemma} \textbf{Vector of fitted values} \\
+\\
+ $\hat{Y}$ is unique and
+$\hat{Y} = PY$,
+where P is the projection matrix onto the column space of X.
+\end{lemma}
+
+\begin{theorem} \textbf{Unbiased estimator of standard deviation}
+$$
+\hat{\sigma}^2 := \frac{RSS}{n - r} \text{ is an unbiased estimator of } \sigma^2
+$$
+
+\end{theorem}
+
+Proof concept:
+\begin{itemize}
+    \item Write RSS as $Y^TQY$
+    \item Use lemma Trace(AB)=Trace(BA)
+    \item Expand with definition of covariance
+    \item Cov(Y) = $\sigma^2$
+    \item QX$\beta$ = 0 as for $x \in span(P) Qx = 0$
+    \item Use trace(A) = rank(A)
+\end{itemize}
+
+\begin{lemma} \textbf{Multivariate normal independence} \\
+\\
+For i = 1,...,k, let $A_i \in \mathbb{R}^{n_i \times n_i}$ be pos. semidef. and symmetric and let $Z_i$ be an $n_i$-variate random vector. If Z = \begin{pmatrix} Z_1 \\ \vdots \\ Z_k \end{pmatrix} $\sim N(\mu, \Sigma)$, for some $\mu \in \mathbb{R}^{\sum_{i=1}^{k} n_i}$
+and $\Sigma$ =$ diag(A_1,...,A_k)$ = \begin{pmatrix} A_1 & & 0 \\ & \ddots & \\ 0 & & A_k \end{pmatrix} then $Z_1,...,Z_k$ are independent.
+\end{lemma}
+
+\begin{lemma} \textbf{Properties of Chi-Square} \\
+\\
+Let $U \sim \chi^2_n(\delta)$. Then $E(U)=n+ \delta^2$ and $Var(U)=2n+4\delta^2$.
+If $U_i \sim \chi^2_{n_i} (\delta_i)$, i = 1,...,k and $U_i$’s are indep. then $\sum^k_{i=1} U_i \sim \chi^2_{\sum n_i , \sqrt{\sum \delta_i^2}}$
+\end{lemma}
+
+\begin{lemma} \textbf{Reducing A to be full rank} \\
+\\
+Let $A \in R^{n \times n}$ be a pos. semidefinite symmetric matrix with rank r. Then there exists $L \in R^{n \times r}$ such that rank L = r, A = $LL^T$ and $L^TL$ =diag(non zero eigenvalues of A).
+ 
+\end{lemma}
+
+\begin{lemma} \textbf{Implications of BA = 0} \\
+\\
+Let $X \sim N(\mu,I)$, $A \in R^{n \times n}$ pos. semidefinite symmetric and let B be a matrix such that BA = 0.
+Then $X^T AX$ and BX are independent.
+\end{lemma}
+
+\begin{lemma} \textbf{Constructing a Chi square dist from a PM} \\
+\\
+ If $Z \sim N(\mu,I_n)$ and A is an $n \times n $ projection matrix of rank r,then $Z^TAZ\sim \chi^2_r(\delta)$ with $\delta^2 =\mu^TA \mu$
+\end{lemma}
+
+\begin{lemma} \textbf{Independence of two projection matrices} \\
+\\
+  If $Z \sim N( \mu, I_n)$ and $A_1, A_2 \in R^{n \times n}$ are projection matrices and $A_1A_2 = 0$ then $Z^T A_1Z$ and $Z^T A_2Z$ are independent.
+\end{lemma}
+
+\begin{lemma} \textbf{Properties of rank}\\
+\\
+If $A_1,...,A_k$ are symmetric $n \times n$ matrices such that $\sum A_i = I_n$ and if rank $A_i = r_i$
+then the following are equivalent:
+\begin{align*}
+    & \sum r_i =n \\
+    &A_iA_j =0 \text{ for all } i \ne j \\
+    &A_i \text{ is idempotent for all i = 1,...,k.}\\
+\end{align*}
+\end{lemma}
+
+\begin{theorem}
+ \textbf{The Fisher-Cochran Theorem} \\
+ \\
+ If $A_1, ... , A_k$ are $n \times n$ projection matrices such that ��$ \sum^n_{i=1} A_i = I_n$, and if $Z \sim N(\mu,I_n)$ then $Z^TA_1Z,...,Z^TA_kZ$ are independent and
+$$Z^TA_iZ \sim \chi^2_{r_i} (\delta_i)$$, where $r_i$ = rank $A_i$ and $\delta_i^2 = \mu ^T A_i \mu$.
+\end{theorem}
+\begin{lemma}
+\textbf{Distribution of RSS} \\
+\\Assume (NTA). Then
+$$\frac{RSS}{\sigma^2} \sim \chi^2_{n - r}$$
+where r = rank X .
+\end{lemma}
+
+
+\begin{lemma} \textbf{Pivotal quantity for} $\mathbf{c_T} \boldsymbol{\beta}$ \\
+\\
+Assume (FR), (NTA) in a linear model. 
+$$
+\frac{c^T \hat{\beta} - c^T \beta}{\sqrt{c^T(X^TX)^{-1}c \frac{RSS}{n-p}}} \sim t_{n-p}$$
+\end{lemma}
+
+\begin{lemma} \textbf{The F test} \\
+\\
+Under $H_0 : E(Y) \in span(X_0)$,
+$$ F = \frac{RSS_0 - RSS}{RSS} \cdot \frac{n - r}{ r - s} \sim F_{r - s,n - r}
+$$
+where r = rank X, s = $rank X_0$.
+\end{lemma}
+Proof Concept:
+\begin{itemize}
+    \item Write RSS in Q form
+    \item Expand into P
+    \item Construct sum of Ps such that the sum is equal to $I_n$
+    \item Show $P-P_0$ is a projection matrix
+    \item Show independence with Fisher Cochran
+    \item Show non centrality parameter is 0
+    \item Find ranks
+\end{itemize}
+
+\end{document}
